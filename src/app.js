@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Main from "./components/main";
 import SearchForecast from "./components/searchForecast";
