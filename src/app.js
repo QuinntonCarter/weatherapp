@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Routes, Route } from "react-router-dom";
 
-import Main from "./components/main";
+import Main from "./main";
 import SearchForecast from "./components/searchForecast";
 import date from "date-and-time";
 import { ForecastContext } from "./context/forecastContext";
@@ -103,10 +103,7 @@ export default function App() {
         <Route
           path="/searchForecast"
           element={
-            <SearchForecast
-              timeStyle={timeStyle}
-              tempStyle={tempStyle}
-            />
+            <SearchForecast timeStyle={timeStyle} tempStyle={tempStyle} />
           }
         />
       </Routes>
