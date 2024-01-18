@@ -30,7 +30,6 @@ export default function Main({ timeStyle, tempStyle }) {
       <button className={``} onClick={handleSubmit}>
         Check Forecast
       </button>
-      <AutoLocation />
       {/* {autoLocation.data ? (
         <div className="m-4 flex flex-col mx-auto place-items-center">
           <h2 className="font-medium text-lg"> {forecastDays[0]} </h2>

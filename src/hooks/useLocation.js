@@ -3,12 +3,7 @@ import useSWR from "swr";
 
 const locationFetcher = (...args) => fetch(...args).then((res) => res.json());
 
-export const useLocation = (
-  ipData,
-  setLoading
-  //   shouldFetchLocation,
-  //   setShouldFetchLocation
-) => {
+export const useLocation = (ipData) => {
   const [shouldFetchLocation, setShouldFetchLocation] = useState(ipData);
   const { data, error, isLoading } = useSWR(
     shouldFetchLocation
@@ -21,7 +16,6 @@ export const useLocation = (
     if (data) {
       setShouldFetchLocation(false);
     }
-    // setLoading(isLoading);
   }, []);
 
   // render data

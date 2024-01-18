@@ -1,9 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useLocation } from "../hooks/useLocation";
 
-export default function ForecastsView({ ipData, setLoading }) {
-  const { locationData, isError, isLoading } = useLocation(ipData, setLoading);
+export default function ForecastsView({ ipData }) {
+  const { locationData, isError, isLoading } = useLocation(ipData);
+
   console.log("serachForecast => location data", locationData);
+
   if (isError) return <div>failed to location data</div>;
   if (isLoading) return <div>loading location data...</div>;
 
