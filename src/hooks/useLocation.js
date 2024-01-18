@@ -1,13 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useSWR from "swr";
 
-const locationFetcher = (...args) => fetch(...args).then((res) => res.json()); // make global **
+const locationFetcher = (...args) => fetch(...args).then((res) => res.json());
 
 export const useLocation = (
   ipData,
-  shouldFetchLocation,
-  setShouldFetchLocation
+  setLoading
+  //   shouldFetchLocation,
+  //   setShouldFetchLocation
 ) => {
+  const [shouldFetchLocation, setShouldFetchLocation] = useState(ipData);
   const { data, error, isLoading } = useSWR(
     shouldFetchLocation
       ? `http://api.weatherapi.com/v1/current.json?key=${process.env.REACT_APP_API_ACCESS}&q=${ipData.city}`
@@ -19,10 +21,8 @@ export const useLocation = (
     if (data) {
       setShouldFetchLocation(false);
     }
+    // setLoading(isLoading);
   }, []);
-
-  if (error) return <div>failed to load</div>;
-  if (isLoading) return <div>loading...</div>;
 
   // render data
   return {

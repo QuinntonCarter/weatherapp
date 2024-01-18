@@ -1,26 +1,22 @@
-import React, { useState } from "react";
-import SearchForecast from "./components/searchForecast";
+import React, { useState, useEffect } from "react";
+import ForecastsView from "./components/ForecastsView";
 import { useIPLocation } from "./hooks/useIPLocation";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const [shouldFetchLocation, setShouldFetchLocation] = useState(false);
-  const { ipData, error, isLoading } = useIPLocation(
-    setLoading,
-    setShouldFetchLocation
-  );
+  const { ipData, error, isLoading } = useIPLocation(setLoading);
 
-  console.log("app comp ip data", ipData);
+  console.log("app => ip data", ipData);
+  useEffect(() => {
+    console.log("laoding useeffect app", loading);
+  }, [loading]);
+
   // not displaying these ternaries..?
   if (error) return <div>failed to load</div>;
   if (isLoading) return <div>loading...</div>;
   return (
     <div>
-      <SearchForecast
-        ipData={ipData}
-        shouldFetchLocation={shouldFetchLocation}
-        setShouldFetchLocation={setShouldFetchLocation}
-      />
+      <ForecastsView ipData={ipData} setLoading={setLoading} />
     </div>
   );
 }
