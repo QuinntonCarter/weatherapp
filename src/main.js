@@ -1,11 +1,11 @@
 import React, { useContext, useState } from "react";
 
-import { ForecastContext } from "./context/forecastContext";
+// import { ForecastContext } from "./context/forecastContext";
 import AutoLocation from "./components/AutoLocation.js";
 
 export default function Main({ timeStyle, tempStyle }) {
-  const { autoLocation, forecastDays, getForecast, ipData } =
-    useContext(ForecastContext);
+  // const { autoLocation, forecastDays, getForecast, ipData } =
+  //   useContext(ForecastContext);
 
   const [location, setLocation] = useState("");
 

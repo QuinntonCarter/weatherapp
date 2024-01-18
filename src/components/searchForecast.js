@@ -1,17 +1,27 @@
-import React, { useContext } from "react";
-import { Link } from "react-router-dom";
-import { ForecastContext } from "../context/forecastContext";
+import React, { useEffect } from "react";
+import { useLocation } from "../hooks/useLocation";
 
-export default function SearchForecast({ ipData }) {
-  const { searchedLocation, setSearchedLocation, forecastDays } =
-    useContext(ForecastContext);
-  console.log("ip data searchforecast component", ipData);
-  // const {
-  //     timeStyle,
-  //     timedFont
-  // } = props // remove for refactor
+export default function SearchForecast({
+  ipData,
+  shouldFetchLocation,
+  setShouldFetchLocation,
+}) {
+  const { locationData, isError, isLoading } = useLocation(
+    ipData,
+    shouldFetchLocation,
+    setShouldFetchLocation
+  );
 
-  //   console.log(searchedLocation);
+  console.log(
+    "ip data searchforecast component",
+    ipData,
+    "location data",
+    locationData
+  );
+
+  if (isError) return <div>failed to loaction data</div>;
+  if (isLoading) return <div>loading location data...</div>;
+
   return (
     <div className={``}>
       {/* {searchedLocation.location ? (
