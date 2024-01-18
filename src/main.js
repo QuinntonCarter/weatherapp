@@ -7,51 +7,28 @@ export default function Main({ timeStyle, tempStyle }) {
   const { autoLocation, forecastDays, getForecast, ipData } =
     useContext(ForecastContext);
 
-  // const { timeStyle, tempStyle } = props;
-
-  const [inputs, setInputs] = useState({
-    location: "",
-  });
-
-  function handleChange(e) {
-    const { name, value } = e.target;
-    setInputs((prevInputs) => ({
-      ...prevInputs,
-      [name]: value,
-    }));
-  }
+  const [location, setLocation] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    getForecast(inputs.location);
+    getForecast(location);
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      className={`font-sans flex rounded-lg p-3 flex-col bg-${
-        timeStyle().bgColor
-      } bg-opacity-60 m-auto`}
-    >
-      <h1 className="text-xl pb-3">
-        <i className={`${timeStyle().icon} ${tempStyle()}`} />
+    <form onSubmit={handleSubmit} className={``} required>
+      <h1 className="">
+        {/* <i className={`${timeStyle().icon} ${tempStyle()}`} /> ((refactor)) */}
       </h1>
       <input
         required
-        className="bg-gray-200 text-xs rounded-xl m-2 p-3 h-10 text-center text-black mx-auto"
+        className=""
         name="location"
-        value={inputs.location}
-        onChange={handleChange}
+        value={location}
+        onChange={(e) => setLocation(e.target.value)}
         placeholder="enter city or zip code"
       />
-      <button
-        className={`font-medium text-sm shadow hover:bg-${
-          timeStyle().btnColorH
-        } text-white bg-${timeStyle().btnColor} p-1 w-auto rounded-full`}
-        onClick={() => (inputs.location.length > 0 ? handleSubmit : null)}
-      >
-        {" "}
-        check forecast{" "}
+      <button className={``} onClick={handleSubmit}>
+        Check Forecast
       </button>
       <AutoLocation />
       {/* {autoLocation.data ? (
