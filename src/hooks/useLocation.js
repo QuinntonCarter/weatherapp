@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import useSWR from "swr";
+import { cache } from "swr/_internal";
 
 const locationFetcher = (...args) => fetch(...args).then((res) => res.json());
 

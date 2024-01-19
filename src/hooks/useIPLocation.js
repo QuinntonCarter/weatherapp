@@ -10,10 +10,6 @@ export const useIPLocation = (setLoading, setShouldFetchLocation) => {
     autoLocationFetcher
   );
 
-  // useEffect(() => {
-  //   setLoading(isLoading);
-  // }, [isLoading]);
-
   // render data
   return {
     ipData: data,
