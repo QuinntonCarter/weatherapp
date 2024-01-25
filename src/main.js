@@ -11,7 +11,7 @@ export default function Main({ timeStyle, tempStyle }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    getForecast(location);
+    // getForecast(location);
   }
 
   return (
