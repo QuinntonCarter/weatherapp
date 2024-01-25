@@ -17,7 +17,7 @@ export default function Forecast({
   date,
 }) {
   console.log("ref", "condition", date);
-  const [display, setDisplay] = useState(true);
+  const [display, setDisplay] = useState("none");
 
   let positionY = Math.random() * 60;
   let positionX = Math.random() * 84;
@@ -26,7 +26,7 @@ export default function Forecast({
   const typeOfTitle = type === "Extended" ? forecastDate : "Daily forecast";
 
   function handleCloseWindow() {
-    setDisplay(false);
+    setDisplay("none");
     console.log("this is window", index);
   }
 
@@ -40,18 +40,19 @@ export default function Forecast({
   }
 
   // debugging
-  // useEffect(() => {
-  //   console.log(positionY, positionX);
-  //   for (const window in testArr) {
-  //     // positionX.current = Math.random() * 84;
-  //   }
-  // }, []);
+  useEffect(() => {
+    //   console.log(positionY, positionX);
+    const staggerDisplayTime = Math.random() * 700;
+    setTimeout(() => {
+      setDisplay("block");
+    }, staggerDisplayTime);
+  }, []);
 
   return (
     <div
       className={`${type === "Extended" && "extended"} window daily`}
       style={{
-        display: !display && "none",
+        display: display,
         bottom: `${positionY}%`,
         left: `${positionX}%`,
       }}
