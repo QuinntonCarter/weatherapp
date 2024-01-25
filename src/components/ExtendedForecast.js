@@ -1,4 +1,25 @@
-export default function ExtendedForecast() {
-  // map through forecast data, send to a forecast component rendered for each forecast
-  return <div>ExtendedForecast</div>;
+import Forecast from "./Forecast";
+
+export default function ExtendedForecast({ locationData }) {
+  console.log(
+    "extended forecast",
+    locationData.map((day) => console.log(day))
+  );
+  // maybe remove ternary loading
+  if (!locationData.length) {
+    <p>loading extended forecast...</p>;
+  }
+  return (
+    <div>
+      {locationData.map((day) => (
+        <Forecast
+          type={"Extended"}
+          temp={day.day.avgtemp_f}
+          condition={day.day.condition.text}
+          mintemp={day.day.mintemp_f}
+          maxtemp={day.day.maxtemp_f}
+        />
+      ))}
+    </div>
+  );
 }
