@@ -16,9 +16,5 @@ export default function App() {
   if (error) return <div>failed to load ip data</div>;
   if (isLoading) return <div>loading ip data...</div>;
 
-  return (
-    <div>
-      <ForecastsView ipData={ipData} />
-    </div>
-  );
+  return <ForecastsView ipData={ipData} />;
 }

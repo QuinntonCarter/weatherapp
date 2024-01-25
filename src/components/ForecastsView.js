@@ -1,17 +1,22 @@
 import React, { useState } from "react";
 import { useLocation } from "../hooks/useLocation";
 import Forecast from "./Forecast";
+import SearchLocationForm from "./SearchLocationForm";
+import ExtendedForecast from "./ExtendedForecast";
 
 export default function ForecastsView({ ipData }) {
   const { data, isError, isLoading } = useLocation(ipData.city);
-  const [type, setType] = useState("daily");
   console.log("forecasts view", data, isError, isLoading);
 
-  if (isError) return <div>failed to retrieve location data</div>;
-  if (isLoading) return <div>loading location data...</div>;
+  if (isError)
+    return <div className={`container`}>failed to retrieve location data</div>;
+  if (isLoading)
+    return <div className={`container`}>loading location data...</div>;
   return (
-    <div className={``}>
-      <Forecast type={type} locationData={data} />
+    <div className={`container`}>
+      <SearchLocationForm />
+      <Forecast type={"daily"} locationData={data} />
+      <ExtendedForecast locationData={data} />
       {/* {searchedLocation.location ? (
         <div className="">
           <h1 className="">

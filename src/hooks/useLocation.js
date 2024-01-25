@@ -13,7 +13,7 @@ export const useLocation = (ipLocation) => {
       : null,
     locationFetcher
   );
-  console.log("hook", data);
+
   useEffect(() => {
     if (data) {
       setShouldFetchLocation(false);
