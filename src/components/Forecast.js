@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 // card view of forecast, reusable
 export default function Forecast({
   type,
@@ -6,22 +8,37 @@ export default function Forecast({
   name = false,
   maxtemp = false,
   mintemp = false,
+  index,
 }) {
   console.log("ref", "condition", temp);
+
+  const [display, setDisplay] = useState(true);
+
+  function handleCloseWindow() {
+    setDisplay(false);
+    console.log("this is window", index);
+  }
+
   const isAverage = mintemp || maxtemp ? "Average " : "";
   if (!temp) {
     <p>loading forecast...</p>;
   }
-  // if (locationData.current)
+
   return (
-    <div className="window daily">
+    <div
+      className="window daily"
+      style={{ display: !display && "none" }}
+    >
       <div className="title-bar">
         <div className="title-bar-text">{type} Forecast</div>
         {type === "Extended" ? (
           <div className="title-bar-controls">
             {/* <button aria-label="Minimize"></button>
             <button aria-label="Maximize"></button> */}
-            <button aria-label="Close"></button>
+            <button
+              aria-label="Close"
+              onClick={handleCloseWindow}
+            ></button>
           </div>
         ) : null}
       </div>

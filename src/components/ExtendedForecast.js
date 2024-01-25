@@ -11,13 +11,15 @@ export default function ExtendedForecast({ locationData }) {
   }
   return (
     <div>
-      {locationData.map((day) => (
+      {locationData.map((day, i) => (
         <Forecast
           type={"Extended"}
           temp={day.day.avgtemp_f}
           condition={day.day.condition.text}
           mintemp={day.day.mintemp_f}
           maxtemp={day.day.maxtemp_f}
+          key={i}
+          index={i}
         />
       ))}
     </div>
