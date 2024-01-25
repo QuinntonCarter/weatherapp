@@ -17,11 +17,13 @@ export default function Forecast({
     <div className="window daily">
       <div className="title-bar">
         <div className="title-bar-text">{type} Forecast</div>
-        <div className="title-bar-controls">
-          <button aria-label="Minimize"></button>
-          <button aria-label="Maximize"></button>
-          <button aria-label="Close"></button>
-        </div>
+        {type === "Extended" ? (
+          <div className="title-bar-controls">
+            {/* <button aria-label="Minimize"></button>
+            <button aria-label="Maximize"></button> */}
+            <button aria-label="Close"></button>
+          </div>
+        ) : null}
       </div>
       <span className="dailytextContainer">
         <p className="forecastText">{`${isAverage}${Math.round(temp)}`}</p>
