@@ -16,9 +16,9 @@ export default function Main({ timeStyle, tempStyle }) {
 
   return (
     <form onSubmit={handleSubmit} className={``} required>
-      <h1 className="">
+      <p className="">
         {/* <i className={`${timeStyle().icon} ${tempStyle()}`} /> ((refactor)) */}
-      </h1>
+      </p>
       <input
         required
         className=""

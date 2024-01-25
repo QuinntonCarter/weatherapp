@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const autoLocationFetcher = (...args) =>
   fetch(...args).then((res) => res.json());
