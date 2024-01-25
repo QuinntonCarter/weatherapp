@@ -3,21 +3,15 @@ import { useLocation } from "../hooks/useLocation";
 import Forecast from "./Forecast";
 
 export default function ForecastsView({ ipData }) {
-  const { locationData, isError, isLoading } = useLocation(ipData.city);
+  const { data, isError, isLoading } = useLocation(ipData.city);
   const [type, setType] = useState("daily");
-  console.log(
-    "searchForecast => location data",
-    Boolean(locationData),
-    "location data",
-    locationData
-  );
+  console.log("forecasts view", data, isError, isLoading);
 
   if (isError) return <div>failed to retrieve location data</div>;
   if (isLoading) return <div>loading location data...</div>;
-
   return (
     <div className={``}>
-      <Forecast type={type} locationData={locationData} />
+      <Forecast type={type} locationData={data} />
       {/* {searchedLocation.location ? (
         <div className="">
           <h1 className="">

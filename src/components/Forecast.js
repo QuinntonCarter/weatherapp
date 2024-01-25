@@ -4,14 +4,17 @@ import { useRef } from "react";
 // card view of forecast, reusable
 export default function Forecast({ type, locationData }) {
   // let locationRef = useRef(locationData);
-  // console.log("ref", locationRef.current, "condition", locationData);
+  console.log("ref", locationData, "condition", locationData);
+  if (!locationData) {
+    <p>loading</p>;
+  }
   if (type === "daily")
     return (
       <>
-        <p> daily forecast placeholder </p>
-        {/* <p> {locationRef.current.current.temp_f} </p>
-        <p>{locationRef.current.current.condition.text}</p>
-        <p>{locationRef.current.location.name}</p> */}
+        {/* <p> daily forecast placeholder </p>
+        <p> {locationData.current.temp_f} </p>
+        <p>{locationData.current.condition.text}</p>
+        <p>{locationData.location.name}</p> */}
       </>
     );
   if (type === "extended") return <p> extended forecast placeholder </p>;
