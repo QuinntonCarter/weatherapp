@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useLocation } from "../hooks/useLocation";
 import Forecast from "./Forecast";
 import SearchLocationForm from "./SearchLocationForm";

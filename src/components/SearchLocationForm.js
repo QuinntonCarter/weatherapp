@@ -6,13 +6,23 @@ export default function SearchLocationForm() {
 
   return (
     <div className="window">
-      <form onSubmit={handleSubmit}>
+      <label htmlFor="location">Search a Location</label>
+      <form
+        id="searchForm"
+        onSubmit={handleSubmit}
+      >
         <div className="field-row">
           <label htmlFor="location">Location</label>
-          <input id="location" type="text" placeholder="Salt Lake City" />
+          <input
+            id="location"
+            type="text"
+            placeholder="Salt Lake City"
+          />
         </div>
-        <input type="submit" />
-        <input type="reset" />
+        <span className="searchButtons">
+          <input type="submit" />
+          <input type="reset" />
+        </span>
       </form>
     </div>
   );

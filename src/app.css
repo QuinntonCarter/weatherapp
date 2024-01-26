@@ -1,24 +1,59 @@
+:root {
+  --step-0: clamp(0.75rem, 0.707rem + 0.217vi, 0.875rem);
+  --step-1: clamp(0.9rem, 0.833rem + 0.337vi, 1.094rem);
+  --step-2: clamp(1.08rem, 0.98rem + 0.499vi, 1.367rem);
+  --step-3: clamp(1.296rem, 1.152rem + 0.718vi, 1.709rem);
+  --step-4: clamp(1.555rem, 1.353rem + 1.01vi, 2.136rem);
+  --step-5: clamp(1.866rem, 1.587rem + 1.398vi, 2.67rem);
+}
+
+body {
+  margin: 0px;
+  background: #55aaaa;
+}
+
 .container {
+  padding: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
+  height: auto;
   justify-content: space-evenly;
+  background-color: #55aaaa;
 }
 
-.forecastForm {
+.search {
+  width: 20%;
+  max-width: 275px;
+}
+
+#searchForm {
+  width: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
+}
+
+.searchButtons {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: center;
 }
 
 .daily {
   /* change to tailwind version */
-  width: 15%;
+  width: 40vw;
+  max-width: 300px;
+  min-width: 155px;
+  /* min-width: 28%; */
   max-height: 35%;
+  margin-top: 1.5em;
 }
 
 .extended {
-  position: absolute;
+  /* position: absolute; */
+  max-width: 375px;
 }
 
 .dailytextContainer {
@@ -26,9 +61,13 @@
 
 .forecastText {
   text-align: center;
+  font-size: var(--step-0);
 }
 
 .extendedForecastContainer {
   height: 100%;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

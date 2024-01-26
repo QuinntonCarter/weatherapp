@@ -6,7 +6,7 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const { ipData, error, isLoading } = useIPLocation(setLoading);
 
-  console.log("app => ip data", Boolean(ipData));
+  console.log("app => ip data", ipData);
 
   useEffect(() => {
     console.log("laoding useeffect app", loading);

@@ -16,11 +16,10 @@ export default function Forecast({
   testArr,
   date,
 }) {
-  console.log("ref", "condition", date);
   const [display, setDisplay] = useState("none");
-
-  let positionY = Math.random() * 60;
+  // const [positionXStag, setPositionXStag] = useState(1);
   let positionX = Math.random() * 84;
+  let positionY = Math.random() * 60;
 
   const forecastDate = dayjs.unix(date).format("MM-DD-YYYY");
   const typeOfTitle = type === "Extended" ? forecastDate : "Daily forecast";
@@ -32,7 +31,8 @@ export default function Forecast({
 
   // bottom between 1 and 60 x
   // left between 1 and 84 x
-  // how to stagger display?
+  // how to stagger display? x
+  // start mobile styling
   // add button to "organize" view (same as mobile view?)
   const isAverage = mintemp || maxtemp ? "Average " : "";
   if (!temp) {
@@ -41,7 +41,6 @@ export default function Forecast({
 
   // debugging
   useEffect(() => {
-    //   console.log(positionY, positionX);
     const staggerDisplayTime = Math.random() * 700;
     setTimeout(() => {
       setDisplay("block");
@@ -53,16 +52,14 @@ export default function Forecast({
       className={`${type === "Extended" && "extended"} window daily`}
       style={{
         display: display,
-        bottom: `${positionY}%`,
-        left: `${positionX}%`,
+        // bottom: `${positionY}%`,
+        // left: `${positionX}%`,
       }}
     >
       <div className="title-bar">
         <div className="title-bar-text">{typeOfTitle}</div>
         {type === "Extended" ? (
           <div className="title-bar-controls">
-            {/* <button aria-label="Minimize"></button>
-            <button aria-label="Maximize"></button> */}
             <button
               aria-label="Close"
               onClick={handleCloseWindow}
