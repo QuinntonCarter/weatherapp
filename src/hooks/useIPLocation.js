@@ -10,7 +10,7 @@ export const useIPLocation = (setLoading) => {
     autoLocationFetcher
   );
 
-  // render data
+  // return data
   return {
     ipData: data,
     error: error,

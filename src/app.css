@@ -32,6 +32,13 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-width: 250px;
+  min-width: 200px;
+  width: 35vw;
+}
+
+#searchForm > .field-row {
+  justify-content: center;
 }
 
 .searchButtons {
@@ -41,18 +48,19 @@ body {
   justify-content: center;
 }
 
+.dailyTitleBar {
+  background: linear-gradient(90deg, #808080, #b2b2b2) !important;
+}
+
 .daily {
-  /* change to tailwind version */
-  width: 40vw;
+  width: 30vw;
   max-width: 300px;
   min-width: 155px;
-  /* min-width: 28%; */
   max-height: 35%;
   margin-top: 1.5em;
 }
 
 .extended {
-  /* position: absolute; */
   max-width: 375px;
 }
 
@@ -68,6 +76,6 @@ body {
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
 }

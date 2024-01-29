@@ -1,22 +1,25 @@
-export default function SearchLocationForm() {
+import { useState } from "react";
+
+export default function SearchLocationForm({ location, setLocation }) {
+  const [searchInputs, setSearchInputs] = useState("");
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("form submitted");
+    setLocation(searchInputs);
   };
 
   return (
     <div className="window">
       <label htmlFor="location">Search a Location</label>
-      <form
-        id="searchForm"
-        onSubmit={handleSubmit}
-      >
+      <form id="searchForm" onSubmit={handleSubmit}>
         <div className="field-row">
           <label htmlFor="location">Location</label>
           <input
+            onChange={(e) => setSearchInputs(e.target.value)}
             id="location"
             type="text"
-            placeholder="Salt Lake City"
+            placeholder={`${location}`}
+            style={{ textTransform: "capitalize" }}
           />
         </div>
         <span className="searchButtons">

@@ -20,7 +20,7 @@ export const useLocation = (ipLocation) => {
     }
   }, []);
 
-  // render data
+  // return data
   return {
     data: data,
     isError: error,
