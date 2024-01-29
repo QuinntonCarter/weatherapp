@@ -11,10 +11,14 @@ export default function SearchLocationForm({ location, setLocation }) {
   return (
     <div className="window">
       <label htmlFor="location">Search a Location</label>
-      <form id="searchForm" onSubmit={handleSubmit}>
+      <form
+        id="searchForm"
+        onSubmit={handleSubmit}
+      >
         <div className="field-row">
           <label htmlFor="location">Location</label>
           <input
+            title="Use zip code for best results"
             onChange={(e) => setSearchInputs(e.target.value)}
             id="location"
             type="text"

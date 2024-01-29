@@ -20,12 +20,16 @@ export default function ForecastsView({ ipData }) {
     return <div className={`container`}>loading location data...</div>;
   return (
     <div className={`container`}>
-      <SearchLocationForm location={location} setLocation={setLocation} />
+      <SearchLocationForm
+        location={location}
+        setLocation={setLocation}
+      />
       <Forecast
         type={"Daily"}
         temp={data.current.temp_f}
         condition={data.current.condition.text}
         name={data.location.name}
+        img={data.current.condition.icon}
       />
       <div className="extendedViewContainer">
         {data.forecast.forecastday.map((day, i) => (
@@ -39,6 +43,7 @@ export default function ForecastsView({ ipData }) {
             index={i}
             id={i}
             date={day.date_epoch}
+            img={day.day.condition.icon}
           />
         ))}
       </div>

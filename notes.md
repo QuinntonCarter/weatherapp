@@ -1,5 +1,5 @@
-- refactor data through out app
-- style with npm package
+- refactor data through out app x
+- style with npm package x
 - maybe make cute like old weather weather channel
 
 - configure for tailwind full styling (font sizes, responsive, etc)
@@ -8,6 +8,4 @@
 
 NOT MVP
 
-- drag and drop extended forecast windows
-- try importing celestial bodies component(s) from nasa image viewer
-- if works, use post processing pixelate filter => can use on forecast cards
+- drag and drop extended forecast windows.. maybe just convert to using react95

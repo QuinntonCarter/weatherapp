@@ -55,7 +55,7 @@ body {
 .daily {
   width: 30vw;
   max-width: 300px;
-  min-width: 155px;
+  min-width: 175px;
   max-height: 35%;
   margin-top: 1.5em;
 }
@@ -64,7 +64,11 @@ body {
   max-width: 375px;
 }
 
-.dailytextContainer {
+.dailytextContainer > img {
+  min-width: 95px;
+  max-width: 135px;
+  display: flex;
+  margin: auto;
 }
 
 .forecastText {
@@ -72,10 +76,23 @@ body {
   font-size: var(--step-0);
 }
 
-.extendedForecastContainer {
+.extendedViewContainer {
   height: 100%;
   width: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
+}
+
+@media screen and (min-width: 600px) {
+  .extendedViewContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+  }
+}
+
+.window > span > img {
+  padding: 10px;
 }
