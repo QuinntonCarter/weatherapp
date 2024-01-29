@@ -1,18 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useLocation } from "../hooks/useLocation";
 import Forecast from "./Forecast";
 import SearchLocationForm from "./SearchLocationForm";
 
 export default function ForecastsView({ ipData }) {
-  const [location, setLocation] = useState(ipData.city);
+  const [location, setLocation] = useState(ipData.postal);
   const { data, isError, isLoading } = useLocation(location);
-
-  console.log("forecasts view", data, isError, isLoading, "location", location);
-
-  // debugging
-  useEffect(() => {
-    console.log("data view", data);
-  }, [data]);
 
   if (isError)
     return <div className={`container`}>failed to retrieve location data</div>;

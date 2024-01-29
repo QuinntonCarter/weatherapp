@@ -15,20 +15,20 @@ export default function Forecast({
   const [display, setDisplay] = useState("none");
   const forecastDate = dayjs.unix(date).format("MM-DD-YYYY");
   const typeOfTitle = type === "Extended" ? forecastDate : "Daily forecast";
+
   const { icon } = useIcon(condition);
+
   function handleCloseWindow() {
     setDisplay("none");
   }
-  console.log("image check", icon);
-  console.log("condition", condition);
-  // start mobile styling
+
   const isAverage = mintemp || maxtemp ? "Average " : "";
   if (!temp) {
     <p>loading forecast...</p>;
   }
 
   useEffect(() => {
-    const staggerDisplayTime = Math.random() * 700;
+    const staggerDisplayTime = Math.random() * 1200;
     setTimeout(() => {
       setDisplay("block");
     }, staggerDisplayTime);

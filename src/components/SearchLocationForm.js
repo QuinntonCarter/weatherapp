@@ -1,4 +1,5 @@
 import { useState } from "react";
+const searchIcon2 = require("../images/magnifystop_w.gif");
 
 export default function SearchLocationForm({ location, setLocation }) {
   const [searchInputs, setSearchInputs] = useState("");
@@ -15,6 +16,10 @@ export default function SearchLocationForm({ location, setLocation }) {
         id="searchForm"
         onSubmit={handleSubmit}
       >
+        <img
+          src={searchIcon2}
+          alt="Search location icon"
+        />
         <div className="field-row">
           <label htmlFor="location">Location</label>
           <input
