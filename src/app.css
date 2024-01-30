@@ -24,6 +24,7 @@ body {
   height: auto;
   justify-content: space-evenly;
   background-color: #55aaaa;
+  /* height: 100%; */
 }
 
 .search {
@@ -61,11 +62,22 @@ body {
   max-width: 300px;
   min-width: 175px;
   max-height: 35%;
+  min-height: 40%;
   margin-top: 1.5em;
 }
 
 .extended {
   max-width: 375px;
+  min-width: 275px;
+  min-height: 81%;
+  max-height: 100%;
+}
+.dailytextContainer {
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+  max-height: 100%;
+  min-height: 84%;
 }
 
 .dailytextContainer > img {
@@ -78,6 +90,7 @@ body {
 .forecastText {
   text-align: center;
   font-size: var(--step-0);
+  font-size: 17px;
 }
 
 .extendedViewContainer {
@@ -95,8 +108,37 @@ body {
     gap: 1em;
     justify-content: center;
   }
+  .container {
+    height: 100%;
+  }
 }
 
 .window > span > img {
   padding: 10px;
+}
+
+.footerBar {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0px;
+  bottom: 0px;
+  width: -webkit-fill-available;
+}
+
+.title-bar-controls > button {
+  padding: 7px !important;
+  font-weight: 900;
+}
+
+.btnImgText {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  text-decoration: none;
+  color: black;
+}
+
+.btnImgText > img {
+  height: 18px;
+  width: auto;
 }

@@ -10,7 +10,6 @@ export default function Forecast({
   maxtemp = false,
   mintemp = false,
   date,
-  img,
 }) {
   const [display, setDisplay] = useState("none");
   const forecastDate = dayjs.unix(date).format("MM-DD-YYYY");
@@ -56,15 +55,14 @@ export default function Forecast({
         <img
           src={icon}
           alt={"condition description icon"}
-          style={{ imageRendering: "pixelated" }}
         />
-        <p className="forecastText">{`${isAverage}${Math.round(temp)}`}</p>
+        <p className="forecastText">{`${isAverage}${Math.round(temp)}°`}</p>
         <span className="minmaxtemp-container">
           {mintemp ? (
-            <p className="forecastText">High {Math.round(mintemp)}</p>
+            <p className="forecastText">High {Math.round(mintemp)}°</p>
           ) : null}
           {maxtemp ? (
-            <p className="forecastText">Low {Math.round(maxtemp)}</p>
+            <p className="forecastText">Low {Math.round(maxtemp)}°</p>
           ) : null}
         </span>
         <p className="forecastText">{condition}</p>

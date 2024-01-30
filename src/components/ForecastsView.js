@@ -17,8 +17,10 @@ export default function ForecastsView({ ipData, setFetchLocation }) {
         {isError || data.error.message} Please reload and try again
       </div>
     );
+
   if (isLoading)
     return <div className={`container`}>Loading location data...</div>;
+  console.log(data);
   return (
     <div className={`container`}>
       <SearchLocationForm
@@ -46,6 +48,7 @@ export default function ForecastsView({ ipData, setFetchLocation }) {
             id={i}
             date={day.date_epoch}
             img={day.day.condition.icon}
+            name={data.location.name}
           />
         ))}
       </div>

@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { useIPLocation } from "./hooks/useIPLocation";
 import ForecastsView from "./components/ForecastsView";
 
+import { Footer } from "./components/Footer";
+import Header from "./components/Header";
+
 export default function App() {
   const [loading, setLoading] = useState(true);
   const [fetchLocation, setFetchLocation] = useState(true);
@@ -10,15 +13,18 @@ export default function App() {
     fetchLocation
   );
 
-  console.log("app => ip data", ipData);
-
   useEffect(() => {
-    console.log("laoding useeffect app", loading);
+    console.log("laoding useeffect app", loading || error);
   }, [loading]);
 
-  // not displaying these ternaries..?
   if (error) return <div>failed to load ip data</div>;
   if (isLoading) return <div>loading ip data...</div>;
 
-  return <ForecastsView ipData={ipData} />;
+  return (
+    <div>
+      <Header />
+      <ForecastsView ipData={ipData} />
+      <Footer />
+    </div>
+  );
 }
