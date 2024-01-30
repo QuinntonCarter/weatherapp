@@ -81,8 +81,9 @@ body {
 }
 
 .dailytextContainer > img {
-  min-width: 95px;
+  min-width: auto;
   max-width: 135px;
+  max-height: 125px;
   display: flex;
   margin: auto;
 }
@@ -107,9 +108,6 @@ body {
     flex-direction: row;
     gap: 1em;
     justify-content: center;
-  }
-  .container {
-    height: 100%;
   }
 }
 

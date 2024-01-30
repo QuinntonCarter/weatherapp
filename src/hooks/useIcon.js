@@ -11,8 +11,8 @@ const unknown = require("../images/unknown_misc_other.gif");
 export default function useIcon(condition) {
   let icon;
   if (
-    condition.includes("Partly cloudy") ||
-    condition.includes("Partly sunny")
+    condition.includes("Partly Cloudy") ||
+    condition.includes("Partly Sunny")
   ) {
     icon = cloudy;
   } else if (condition.includes("Rain") || condition.includes("rain")) {
