@@ -1,13 +1,18 @@
 import { useState } from "react";
 const searchIcon2 = require("../images/magnifystop_w.gif");
 
-export default function SearchLocationForm({ location, setLocation }) {
+export default function SearchLocationForm({ location, setLocation, ipData }) {
   const [searchInputs, setSearchInputs] = useState("");
 
-  const handleSubmit = (e) => {
+  function handleSubmit(e) {
     e.preventDefault();
     setLocation(searchInputs);
-  };
+  }
+
+  function handleReset(e) {
+    e.preventDefault();
+    setLocation(ipData.postal);
+  }
 
   return (
     <div className="window">
@@ -15,13 +20,14 @@ export default function SearchLocationForm({ location, setLocation }) {
       <form
         id="searchForm"
         onSubmit={handleSubmit}
+        onReset={handleReset}
       >
         <img
           src={searchIcon2}
           alt="Search location icon"
         />
         <div className="field-row">
-          <label htmlFor="location">Location</label>
+          <label htmlFor="location">City or Zip </label>
           <input
             title="Use zip code for best results"
             onChange={(e) => setSearchInputs(e.target.value)}
@@ -29,6 +35,7 @@ export default function SearchLocationForm({ location, setLocation }) {
             type="text"
             placeholder={`${location}`}
             style={{ textTransform: "capitalize" }}
+            required={true}
           />
         </div>
         <span className="searchButtons">

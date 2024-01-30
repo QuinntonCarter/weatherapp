@@ -3,19 +3,28 @@ import { useLocation } from "../hooks/useLocation";
 import Forecast from "./Forecast";
 import SearchLocationForm from "./SearchLocationForm";
 
-export default function ForecastsView({ ipData }) {
+export default function ForecastsView({ ipData, setFetchLocation }) {
   const [location, setLocation] = useState(ipData.postal);
   const { data, isError, isLoading } = useLocation(location);
 
-  if (isError)
-    return <div className={`container`}>failed to retrieve location data</div>;
+  if (isError || data?.error)
+    return (
+      <div className={`container`}>
+        <SearchLocationForm
+          location={location}
+          setLocation={setLocation}
+        />
+        {isError || data.error.message} Please reload and try again
+      </div>
+    );
   if (isLoading)
-    return <div className={`container`}>loading location data...</div>;
+    return <div className={`container`}>Loading location data...</div>;
   return (
     <div className={`container`}>
       <SearchLocationForm
         location={location}
         setLocation={setLocation}
+        ipData={ipData}
       />
       <Forecast
         type={"Daily"}

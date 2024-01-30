@@ -4,7 +4,11 @@ import ForecastsView from "./components/ForecastsView";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
-  const { ipData, error, isLoading } = useIPLocation(setLoading);
+  const [fetchLocation, setFetchLocation] = useState(true);
+  const { ipData, error, isLoading } = useIPLocation(
+    setFetchLocation,
+    fetchLocation
+  );
 
   console.log("app => ip data", ipData);
 
