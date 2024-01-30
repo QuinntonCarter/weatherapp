@@ -9,7 +9,7 @@ export const useLocation = (ipLocation) => {
 
   const { data, error, isLoading } = useSWR(
     shouldFetchLocation
-      ? `http://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_ACCESS}&q=${ipLocation}&days=5&aqi=yes&alerts=yes`
+      ? `https://api.weatherapi.com/v1/forecast.json?key=${process.env.REACT_APP_API_ACCESS}&q=${ipLocation}&days=5&aqi=yes&alerts=yes`
       : null,
     locationFetcher
   );
