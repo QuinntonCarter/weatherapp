@@ -28,7 +28,8 @@ body {
 
 @media screen and (min-width: 800px) {
   .container {
-    /* max-height: 100%; */
+    /* problematic 02-01-24 */
+    height: 100%;
   }
 }
 
