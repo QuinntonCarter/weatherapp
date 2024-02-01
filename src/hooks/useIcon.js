@@ -11,26 +11,26 @@ const unknown = require("../images/unknown_misc_other.gif");
 export default function useIcon(condition) {
   let icon;
   if (
-    condition.includes("Partly cloudy") ||
-    condition.includes("Partly sunny")
+    condition.includes("partly cloudy") ||
+    condition.includes("partly sunny")
   ) {
     icon = cloudy;
-  } else if (condition.includes("Rain") || condition.includes("rain")) {
+  } else if (condition.includes("rain")) {
     icon = rainy;
   } else if (
-    condition.includes("Stormy" || "storm" || "Storm") ||
-    condition.includes("Lighting")
+    condition.includes("stormy" || "storm" || "storm") ||
+    condition.includes("lighting")
   ) {
     icon = stormy2;
-  } else if (condition.includes("Sunny")) {
+  } else if (condition.includes("sunny")) {
     icon = sunny1;
-  } else if (condition.includes("Clear")) {
+  } else if (condition.includes("clear")) {
     icon = clear;
-  } else if (condition.includes("Snow")) {
+  } else if (condition.includes("snow")) {
     icon = snowy3;
-  } else if (condition.includes("Overcast")) {
+  } else if (condition.includes("overcast")) {
     icon = overcast;
-  } else if (condition.includes("Fog") || condition.includes("Mist")) {
+  } else if (condition.includes("fog") || condition.includes("mist")) {
     icon = foggy;
   } else {
     icon = unknown;

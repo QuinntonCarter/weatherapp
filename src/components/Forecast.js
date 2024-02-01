@@ -15,7 +15,7 @@ export default function Forecast({
   const forecastDate = dayjs.unix(date).format("MM-DD-YYYY");
   const typeOfTitle = type === "Extended" ? forecastDate : "Daily forecast";
 
-  const { icon } = useIcon(condition);
+  const { icon } = useIcon(condition.toLowerCase());
 
   function handleCloseWindow() {
     setDisplay("none");
@@ -44,18 +44,12 @@ export default function Forecast({
         <div className={`title-bar-text`}>{typeOfTitle}</div>
         {type === "Extended" ? (
           <div className="title-bar-controls">
-            <button
-              aria-label="Close"
-              onClick={handleCloseWindow}
-            ></button>
+            <button aria-label="Close" onClick={handleCloseWindow}></button>
           </div>
         ) : null}
       </div>
       <span className="dailytextContainer">
-        <img
-          src={icon}
-          alt={"condition description icon"}
-        />
+        <img src={icon} alt={`${condition} description icon`} />
         <p className="forecastText">{`${isAverage}${Math.round(temp)}°`}</p>
         <span className="minmaxtemp-container">
           {mintemp ? (
