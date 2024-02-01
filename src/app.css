@@ -24,7 +24,12 @@ body {
   height: auto;
   justify-content: space-evenly;
   background-color: #55aaaa;
-  /* height: 100%; */
+}
+
+@media screen and (min-width: 800px) {
+  .container {
+    height: 100%;
+  }
 }
 
 .search {
@@ -68,7 +73,7 @@ body {
 
 .extended {
   max-width: 375px;
-  min-width: 275px;
+  min-width: 240px;
   min-height: 81%;
   max-height: 100%;
 }
@@ -102,9 +107,9 @@ body {
   align-items: center;
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 800px) {
   .extendedViewContainer {
-    display: flex;
+    /* display: flex; */
     flex-direction: row;
     gap: 1em;
     justify-content: center;
