@@ -12,6 +12,7 @@
 # /build
 
 # misc
+notes.md
 .md
 .env
 .DS_Store

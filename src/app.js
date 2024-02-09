@@ -21,7 +21,7 @@ export default function App() {
   if (isLoading) return <div>loading ip data...</div>;
 
   return (
-    <div>
+    <div className="appContainer">
       <Header />
       <ForecastsView ipData={ipData} />
       <Footer />
